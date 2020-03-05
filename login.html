@@ -1,0 +1,68 @@
+
+<html>
+        <head>
+        <title>login validation</title>
+        <link rel="stylesheet" href="external.css"/>
+        </head>
+        
+        <body align="center">
+        
+        <div>
+        
+        
+        <form>
+        <table align="center"  >
+        
+        
+        <tr>
+        <td>
+        USER NAME
+        </td></tr><tr>
+        <td>
+        <input type="textbox" placeholder="Enter Your User Name" id="uname"/></br></br>
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+        PASSWORD
+        </td></tr><tr>
+        <td>
+        <input type="password" placeholder="Enter Password" id="pwd"/></br></br>
+        </td>
+        </tr>
+
+
+        
+        
+        </table>
+
+        <input type="button" value="LOGIN" onclick="validate()"/>
+        <input type="button" value="REGISTER" onclick="window.location.href='pattern.html'"/>
+
+        </form>
+        <script>
+            function validate()
+        {
+        var username=localStorage.getItem('username');
+        var password=localStorage.getItem('password');
+        
+        var u=document.getElementById("uname").value;
+        var p=document.getElementById("pwd").value;
+        
+        
+           
+            if(username.match(u)!==null)
+    		  if(password.match(p)!= null)
+              {
+                 		document.writeln("Valid User Name And Password");
+                         window.location.href="profile.html";
+              }
+               	  else
+                    		document.writeln("Enter Correct Password");
+            else
+                   document.writeln("Enter Correct username");              
+        }
+        </script>
+        </body>
+        </html>

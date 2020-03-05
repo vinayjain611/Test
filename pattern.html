@@ -1,0 +1,143 @@
+
+<html>
+<head>
+<title>login validation</title>
+<link rel="stylesheet" href="external.css"/>
+</head>
+
+<body align="center">
+
+<div>
+
+
+<form action="login.html">
+<table align="center"  >
+
+
+
+		<tr>
+				<td>
+				FULL NAME
+				</td></tr><tr>
+				<td>
+				<input type="textbox" placeholder="Enter Your Full Name" id="fname"/></br></br>
+				</td>
+		</tr>
+
+				<tr>
+						<td>
+						ADDRESS
+						</td></tr><tr>
+						<td>
+						<input type="text" placeholder="Enter Your Address" id="add"/></br></br>
+						</td>
+				</tr>
+
+				<tr>
+						<td>
+						PHONE NUMBER
+						</td></tr><tr>
+						<td>
+						<input type="textbox" placeholder="Enter Your Phone Number" id="pnum"/></br></br>
+						</td>
+						</tr>
+
+<tr>
+<td>
+USER NAME
+</td></tr><tr>
+<td>
+<input type="textbox" placeholder="Enter Your User Name" id="uname"/></br></br>
+</td>
+</tr>
+
+<tr>
+<td>
+PASSWORD
+</td></tr><tr>
+<td>
+<input type="password" placeholder="Enter Password" id="pwd"/></br></br>
+</td>
+</tr>
+
+<tr>
+<td>
+EMAIL
+</td></tr><tr>
+<td> 
+<input type="textbox" placeholder="Enter Your Email" id="email"/></br></br>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><input type="button" onclick="fun()" value="SUBMIT"/>
+</center>
+
+</td>
+</tr>
+
+
+<tr>
+		<td>
+		<center>
+				<input type="submit"  value="Go to Login" />
+		</center>
+		</td></tr>
+
+
+</table>
+</form>
+
+<p id="res"></p>
+
+</div>
+
+<script type="text/javascript">
+
+function fun()
+{
+	var phoneno = /^\d{10}$/;
+	var upat=/^(?=.*[a-z])[A-Za-z]{3,10}$/;
+	var ppat=/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{3,10}/;
+	var epat=/\S+@\S+\.\S+/;
+
+
+	var fnm=document.getElementById("fname").value;
+	var addr=document.getElementById("add").value;
+    var phn=document.getElementById("pnum").value;
+	var name=document.getElementById("uname").value;
+	var p=document.getElementById("pwd").value;
+	var e=document.getElementById("email").value;
+
+	localStorage.setItem('username',name);
+    localStorage.setItem('password',p);
+
+
+if(fnm=="" || addr=="" || phn=="" || name=="" || p=="" || e=="")
+{
+	document.getElementById("res").innerHTML="All Fields Are Mandatory";
+
+}
+else{
+if(phn.match(phoneno)!=null)
+	if(name.match(upat)!=null)
+		if(p.match(ppat)!=null)
+			if(e.match(epat)!=null)
+				document.getElementById("res").innerHTML="Valid Details";
+			else
+				document.getElementById("res").innerHTML="Enter Proper Email Format";
+		else
+			document.getElementById("res").innerHTML="Password Shoud Be Alphanumeric And Atleast 3 Character";
+	else
+		document.getElementById("res").innerHTML="Uname rule violated";
+else
+	document.getElementById("res").innerHTML="Enter Valid Phone Number";
+}
+}
+
+
+
+</script>
+</body>
+</html>
