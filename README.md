@@ -1,7 +1,2 @@
-# test
-This is test repository
-wwewwme
-ewewwew
-ewrwrwrwr
-wewewewew
-ewewewewe
+# Test
+This is test repository.
